@@ -1,0 +1,168 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+:root {
+  --backgroundColor: #fff;
+  --mainColor: #0064c5;
+  --acccentColor: #424656;
+  --acccentColor2: #bb2f52;
+  --specialColor: #ff3346;
+  --fontColor: #0a4377;
+  --secfontColor: #666;
+}
+header {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 20px 10%;
+}
+header .logo {
+  color: var(--mainColor);
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+header nav ul li a {
+  color: var(--acccentColor);
+  margin: 0 20px;
+  font-size: 20px;
+  transition: background-color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: var(--acccentColor2);
+}
+.container {
+  height: 100vh;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 10%;
+  position: relative;
+  overflow: hidden;
+}
+.container .content {
+  flex: 1 1 400px;
+}
+
+.container .image {
+  flex: 1 1 500px;
+  position: relative;
+}
+
+.container .image .shoe {
+  width: 100%;
+  transform: rotate(35deg);
+  display: none;
+}
+
+.container .image .shoe.active {
+  display: initial;
+  animation: animateImage 1s backwards;
+}
+@keyframes animateImage {
+    0% {
+        transform: rotate(0deg) scale(0) translateX(1500px);
+    
+    }
+    100% {
+        transform: rotate(35deg) scale(1) translateX(0px);
+        opacity: 1;
+    }
+    
+}
+
+.container .image::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 370px;
+  height: 370px;
+  left: 100px;
+  top: 130px;
+  background-color: #eee;
+}
+
+.container .content h3 {
+  font-size: 50px;
+  color: var(--fontColor);
+}
+
+.container .content p {
+  font-size: 17px;
+  color: var(--secfontColor);
+  padding: 10px 0;
+  line-height: 1.7;
+}
+
+.container .content .btn {
+  display: inline-block;
+  font-size: 17px;
+  background-color: var(--fontColor);
+  margin-top: 10px;
+  padding: 10px 30px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.container .content .btn:hover {
+  display: inline-block;
+  font-size: 17px;
+  background-color: var(--mainColor);
+  margin-top: 10px;
+  padding: 10px 30px;
+  color: white;
+}
+
+.container .left,
+.container .right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40;
+  width: 50px;
+  color: var(--secfontColor);
+  font-size: 27px;
+  text-align: center;
+  border: 2px solid var(--secfontColor);
+  line-height: 45px;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: (background-color, border) 0.3s;
+}
+
+.container .left {
+  left: 30px;
+}
+
+.container .right {
+  right: 30px;
+}
+
+.container .left:hover,
+.container .right:hover {
+  background-color: var(--fontColor);
+  color: white;
+  border: var(--fontColor);
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>product page</title>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="#">Adidas</a>
+        <nav>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">category</a></li>
+                <li><a href="#">blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container">
+        <div class="content">
+            <h3>New Adidas Shoes</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam eius rem nostrum quisquam provident
+                expedita sapiente voluptates totam possimus tempora?</p>
+            <a class="btn" href="#">Add To Cart</a>
+        </div>
+
+        <div class="image">
+            <img class="shoe active" src="/assets/images/1.png" alt="image1">
+            <img class="shoe" src="/assets/images/2.png" alt="image2">
+            <img class="shoe" src="/assets/images/3.png" alt="image3">
+            <img class="shoe" src="/assets/images/4.png" alt="image4">
+        </div>
+        <div class="left" onclick="prev()">
+            < </div>
+                <div class="right" onclick="next()"> > </div>
+    </section>
+    <script>
+        let shoe = document.querySelectorAll('.shoe');
+        let r = document.querySelector(':root');
+        let index = 0;
+
+        function next() {
+            shoe[index].classList.remove('active');
+            index = (index + 1) % shoe.length;
+            shoe[index].classList.add('active');
+            if (index === 1) {
+                r.style.setProperty('--acccentColor', '#333335');
+                r.style.setProperty('--fontColor', '#333335');
+            } else if (index === 2) {
+                r.style.setProperty('--acccentColor', '#333335');
+                r.style.setProperty('--fontColor', '#F05953');
+            }
+            else if (index === 3) {
+                r.style.setProperty('--acccentColor', '#ff791d');
+                r.style.setProperty('--fontColor', '#ff791d');
+            }
+            else if (index === 0) {
+                r.style.setProperty('--acccentColor', '#424656');
+                r.style.setProperty('--fontColor', '#0a4377');
+            }
+
+        }
+
+
+        function prev() {
+            shoe[index].classList.remove('active');
+            index = (index - 1 + shoe.length) % shoe.length;
+            shoe[index].classList.add('active');
+
+            if (index === 1) {
+                r.style.setProperty('--acccentColor', '#333335');
+                r.style.setProperty('--fontColor', '#333335');
+            } else if (index === 2) {
+                r.style.setProperty('--acccentColor', '#333335');
+                r.style.setProperty('--fontColor', '#F05953');
+            }
+            else if (index === 3) {
+                r.style.setProperty('--acccentColor', '#ff791d');
+                r.style.setProperty('--fontColor', '#ff791d');
+            }
+            else if (index === 0) {
+                r.style.setProperty('--acccentColor', '#424656');
+                r.style.setProperty('--fontColor', '#0a4377');
+            }
+        }
+    </script>
+</body>
+
+</html>
